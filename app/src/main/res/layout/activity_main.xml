@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigateTabBar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#dedede"
+        android:layout_above="@id/navigateTabBar"/>
+
+    <com.meikoz.core.ui.TabStripView
+        android:id="@+id/navigateTabBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_bar_height"
+        android:layout_alignParentBottom="true"
+        app:containerId="@id/main_container"
+        app:navigateTabSelectedTextColor="@color/text_tab_active"
+        app:navigateTabTextColor="@color/text_tab_normal"
+        app:navigateTabTextSize="10sp"/>
+
+</RelativeLayout>

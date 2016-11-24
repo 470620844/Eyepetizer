@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Eyepetizer</string>
+
+    <string name="tab_bar_text_feed">精选</string>
+    <string name="tab_bar_text_category">发现</string>
+    <string name="tab_bar_text_pgc">作者</string>
+    <string name="tab_bar_text_profile">我的</string>
+
+
+    <string name="describe_message_splash">每日精彩视频推荐，让你大开眼界。</string>
+</resources>
