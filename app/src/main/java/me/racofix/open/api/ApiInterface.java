@@ -2,6 +2,7 @@ package me.racofix.open.api;
 
 import com.meikoz.core.api.RestApi;
 
+import me.racofix.open.model.DiscoveryBean;
 import me.racofix.open.model.HomeBean;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,13 +16,13 @@ public interface ApiInterface {
     @GET("v3/tabs/selected")
     Call<HomeBean> onHomeDataStore2Api();
 
-    // 发现
+    // 首页
     @GET("v3/tabs/selected" + defaultUrl)
     Call<HomeBean> onCategoryData2Api();
-//    // 发现
-//    @GET("v3/discovery")
-//    Call<HomeBean> onCategoryData2Api();
 
+    // 发现
+    @GET("v3/discovery" + defaultUrl)
+    Call<DiscoveryBean> onDiscoveryData2Api();
 
     class ApiFactory {
         private static Object monitor = new Object();

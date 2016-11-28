@@ -1,22 +1,13 @@
 package me.racofix.open.presenter;
 
-
-import com.meikoz.core.base.BaseView;
 import com.meikoz.core.model.annotation.Implement;
 
-import me.racofix.open.model.Discovery;
-import me.racofix.open.model.HomeBean;
-
 /**
- * Author: 码农小阿新
- * Date: 2016/9/18
- * Github: https://github.com/racofix
+ * @User: 蜡笔小新
+ * @date: 16-11-28
+ * @GitHub: https://github.com/meikoz
  */
 @Implement(DiscoveryLogicImpl.class)
 public interface DiscoveryLogicI {
-    void onLoadHomeData2Remote();
-
-    interface DiscoveryView extends BaseView {
-        void onResponse(HomeBean body);
-    }
+    void onLoadDiscovery2Remote();
 }

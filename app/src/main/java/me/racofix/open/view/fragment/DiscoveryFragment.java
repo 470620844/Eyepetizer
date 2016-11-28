@@ -1,34 +1,45 @@
 package me.racofix.open.view.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.android.slip.SwipeViewPager;
+import com.meikoz.core.adapter.RecyclerAdapter;
 import com.meikoz.core.base.BaseFragment;
+import com.meikoz.core.manage.log.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import me.racofix.open.R;
-import me.racofix.open.model.HomeBean;
-import me.racofix.open.model.SectionBean;
+import me.racofix.open.model.DataBean;
+import me.racofix.open.model.DiscoveryBean;
+import me.racofix.open.presenter.DataView;
 import me.racofix.open.presenter.DiscoveryLogicI;
 import me.racofix.open.presenter.DiscoveryLogicImpl;
-import me.racofix.open.view.adapter.HomeRecylerAdapter;
+import me.racofix.open.view.adapter.CustomViewPageAdapter;
+import me.racofix.open.view.adapter.DiscoveryAdapter;
+import retrofit2.Response;
 
 /**
- * Author: 码农小阿新
- * Date: 2016/9/18
- * Github: https://github.com/racofix
+ * @User: 蜡笔小新
+ * @date: 16-11-28
+ * @GitHub: https://github.com/meikoz
  */
-public class DiscoveryFragment extends BaseFragment implements DiscoveryLogicI.DiscoveryView {
 
-    @Bind(R.id.category_recycler_view)
-    RecyclerView mCategoryRecyclerView;
+public class DiscoveryFragment extends BaseFragment implements DataView<DiscoveryBean> {
 
-    private List<SectionBean> mSectionList = new ArrayList<>();
-    private HomeRecylerAdapter mHomeAdapter;
+    @Bind(R.id.discovery_recycler_view)
+    RecyclerView mRecyclerView;
+
+    @Bind(R.id.swip_viewpage)
+    SwipeViewPager mSwipeView;
+
+    //    private List<DiscoveryBean.ItemListBean<DataBean>> mViewpagerData = new ArrayList<>();
+    private List<DiscoveryBean.ItemListBean> mDiscoveryData = new ArrayList<>();
+    private RecyclerAdapter mAdapter;
 
     @Override
     protected int getLayoutResource() {
@@ -37,15 +48,10 @@ public class DiscoveryFragment extends BaseFragment implements DiscoveryLogicI.D
 
     @Override
     protected void onInitView(Bundle savedInstanceState) {
-        mHomeAdapter = new HomeRecylerAdapter(getActivity(), mSectionList);
-        mCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mCategoryRecyclerView.setAdapter(mHomeAdapter);
-    }
-
-    @Override
-    protected void onInitData2Remote() {
-        super.onInitData2Remote();
-        ((DiscoveryLogicImpl) mPresenter).onLoadHomeData2Remote();
+        GridLayoutManager manager = new GridLayoutManager(getActivity(), 2);
+        mRecyclerView.setLayoutManager(manager);
+        mAdapter = new DiscoveryAdapter(getActivity(), R.layout.item_content_vertical, mDiscoveryData);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -54,12 +60,32 @@ public class DiscoveryFragment extends BaseFragment implements DiscoveryLogicI.D
     }
 
     @Override
-    public void onResponse(HomeBean body) {
-        if (body != null) {
-            mSectionList.clear();
-            List<SectionBean> list = body.getSectionList();
-            mSectionList.addAll(list);
-            mHomeAdapter.notifyDataSetChanged();
-        }
+    protected void onInitData2Remote() {
+        super.onInitData2Remote();
+        ((DiscoveryLogicImpl) mPresenter).onLoadDiscovery2Remote();
+    }
+
+    @Override
+    public void successful(Response<DiscoveryBean> body) {
+//        mViewpagerData.clear();
+        DiscoveryBean discoveryBean = body.body();
+
+        List<DiscoveryBean.ItemListBean> list = discoveryBean.getItemList();
+        mDiscoveryData.addAll(list);
+        mAdapter.notifyDataSetChanged();
+   /*     for (int i = 0; i < discoveryBean.getItemList().size(); i++) {
+            DiscoveryBean.ItemListBean bean = discoveryBean.getItemList().get(i);
+            if (i == 0) {
+//                DiscoveryBean.ItemListBean pagerData = (DiscoveryBean.ItemListBean) bean.getData();
+//                mViewpagerData.add(pagerData);
+//                CustomViewPageAdapter adapter = new CustomViewPageAdapter(getActivity(), mViewpagerData);
+//                mSwipeView.updateIndicatorView(mViewpagerData.size());
+//                mSwipeView.setAdapter(adapter);
+//                mSwipeView.startScorll();
+            } else if (i > 3) {
+                mDiscoveryData.add(bean);
+                mAdapter.notifyDataSetChanged();
+            }
+        }*/
     }
 }

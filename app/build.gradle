@@ -18,6 +18,10 @@ android {
         }
     }
 
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
 }
 
 dependencies {
@@ -26,5 +30,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.0'
 
     compile 'com.meikoz.basic:core:1.0.5'
+    compile 'com.github.meikoz:slipviewpager:1.0.2'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 }

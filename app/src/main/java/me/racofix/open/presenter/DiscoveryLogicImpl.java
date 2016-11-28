@@ -3,28 +3,29 @@ package me.racofix.open.presenter;
 import com.meikoz.core.base.BasePresenter;
 
 import me.racofix.open.api.ApiInterface;
-import me.racofix.open.model.HomeBean;
+import me.racofix.open.model.DiscoveryBean;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Author: 码农小阿新
- * Date: 2016/9/18
- * Github: https://github.com/racofix
+ * @User: 蜡笔小新
+ * @date: 16-11-28
+ * @GitHub: https://github.com/meikoz
  */
-public class DiscoveryLogicImpl extends BasePresenter<DiscoveryLogicI.DiscoveryView> implements DiscoveryLogicI {
+
+public class DiscoveryLogicImpl extends BasePresenter<DataView> implements DiscoveryLogicI {
 
     @Override
-    public void onLoadHomeData2Remote() {
-        ApiInterface.ApiFactory.createApi().onCategoryData2Api().enqueue(new Callback<HomeBean>() {
+    public void onLoadDiscovery2Remote() {
+        ApiInterface.ApiFactory.createApi().onDiscoveryData2Api().enqueue(new Callback<DiscoveryBean>() {
             @Override
-            public void onResponse(Call<HomeBean> call, Response<HomeBean> response) {
-                getView().onResponse(response.body());
+            public void onResponse(Call<DiscoveryBean> call, Response<DiscoveryBean> response) {
+                getView().successful(response);
             }
 
             @Override
-            public void onFailure(Call<HomeBean> call, Throwable t) {
+            public void onFailure(Call<DiscoveryBean> call, Throwable t) {
 
             }
         });
