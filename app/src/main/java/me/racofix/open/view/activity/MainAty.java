@@ -35,7 +35,7 @@ public class MainAty extends AppCompatActivity {
                 new TabStripView.TabParam(R.drawable.ic_tab_strip_icon_feed,
                         R.drawable.ic_tab_strip_icon_feed_selected, R.string.tab_bar_text_feed));
 
-        navigateTabBar.addTab(DiscoveryFragment.class,
+        navigateTabBar.addTab(HomeFragment.class,
                 new TabStripView.TabParam(R.drawable.ic_tab_strip_icon_category,
                         R.drawable.ic_tab_strip_icon_category_selected, R.string.tab_bar_text_category));
 
