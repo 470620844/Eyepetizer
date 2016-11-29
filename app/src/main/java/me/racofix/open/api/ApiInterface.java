@@ -25,17 +25,18 @@ public interface ApiInterface {
     Call<DiscoveryBean> onDiscoveryData2Api();
 
     class ApiFactory {
-        private static Object monitor = new Object();
+        private volatile static Object monitor = new Object();
         private static ApiInterface apiSingleton;
 
         public static ApiInterface createApi() {
-            synchronized (monitor) {
-                if (apiSingleton == null) {
-                    apiSingleton = RestApi.getInstance().create(ApiInterface.class);
+            if (apiSingleton == null) {
+                synchronized (monitor) {
+                    if (apiSingleton == null) {
+                        apiSingleton = RestApi.getInstance().create(ApiInterface.class);
+                    }
                 }
-                return apiSingleton;
             }
+            return apiSingleton;
         }
     }
-
 }
