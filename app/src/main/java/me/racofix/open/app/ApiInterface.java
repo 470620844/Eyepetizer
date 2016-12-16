@@ -1,4 +1,4 @@
-package me.racofix.open.api;
+package me.racofix.open.app;
 
 import com.meikoz.core.api.RestApi;
 

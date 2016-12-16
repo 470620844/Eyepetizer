@@ -2,7 +2,7 @@ package me.racofix.open.presenter;
 
 import com.meikoz.core.base.BasePresenter;
 
-import me.racofix.open.api.ApiInterface;
+import me.racofix.open.app.ApiInterface;
 import me.racofix.open.model.HomeBean;
 import retrofit2.Call;
 import retrofit2.Callback;

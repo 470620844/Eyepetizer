@@ -1,4 +1,4 @@
-package me.racofix.open.api;
+package me.racofix.open.app;
 
 /**
  * Created by zjl on 16-9-12.

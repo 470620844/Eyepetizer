@@ -8,13 +8,13 @@
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/navigateTabBar"/>
+        android:layout_above="@+id/tsv_navigate_bar"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="#dedede"
-        android:layout_above="@id/navigateTabBar"/>
+        android:layout_above="@id/tsv_navigate_bar"/>
 
     <com.meikoz.core.ui.TabStripView
         android:id="@+id/navigateTabBar"
