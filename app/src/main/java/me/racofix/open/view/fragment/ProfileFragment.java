@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.gifbitmap.GifBitmapWrapperTransformation;
 
 import butterknife.Bind;
 import me.racofix.open.R;
