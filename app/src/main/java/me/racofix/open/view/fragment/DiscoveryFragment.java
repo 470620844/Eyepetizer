@@ -6,20 +6,17 @@ import android.support.v7.widget.RecyclerView;
 
 import com.android.slip.SwipeViewPager;
 import com.meikoz.core.adapter.RecyclerAdapter;
-import com.meikoz.core.base.BaseFragment;
-import com.meikoz.core.manage.log.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import me.racofix.open.R;
-import me.racofix.open.model.DataBean;
 import me.racofix.open.model.DiscoveryBean;
 import me.racofix.open.presenter.DataView;
 import me.racofix.open.presenter.DiscoveryLogicI;
 import me.racofix.open.presenter.DiscoveryLogicImpl;
-import me.racofix.open.view.adapter.CustomViewPageAdapter;
+import me.racofix.open.view.WrapperBaseFragment;
 import me.racofix.open.view.adapter.DiscoveryAdapter;
 import retrofit2.Response;
 
@@ -29,7 +26,7 @@ import retrofit2.Response;
  * @GitHub: https://github.com/meikoz
  */
 
-public class DiscoveryFragment extends BaseFragment implements DataView<DiscoveryBean> {
+public class DiscoveryFragment extends WrapperBaseFragment implements DataView<DiscoveryBean> {
 
     @Bind(R.id.discovery_recycler_view)
     RecyclerView mRecyclerView;

@@ -2,26 +2,29 @@ package me.racofix.open.view.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.meikoz.core.ui.TabStripView;
 
 import butterknife.Bind;
 import me.racofix.open.R;
+import me.racofix.open.view.WrapperBaseAty;
 import me.racofix.open.view.fragment.HomeFragment;
+import me.racofix.open.view.fragment.ProfileFragment;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainAty extends AppCompatActivity {
+public class MainAty extends WrapperBaseAty {
 
     @Bind(R.id.tsv_navigate_bar)
-    private TabStripView mNavigateBar;
+    TabStripView mNavigateBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutResource() {
+        return R.layout.activity_main;
+    }
 
-        mNavigateBar.onRestoreInstanceState(savedInstanceState);
+    @Override
+    protected void onInitialization(Bundle bundle) {
+        mNavigateBar.onRestoreInstanceState(bundle);
 
         mNavigateBar.addTab(HomeFragment.class,
                 new TabStripView.TabParam(R.drawable.ic_tab_strip_icon_feed,
@@ -35,7 +38,7 @@ public class MainAty extends AppCompatActivity {
                 new TabStripView.TabParam(R.drawable.ic_tab_strip_icon_pgc,
                         R.drawable.ic_tab_strip_icon_pgc_selected, R.string.tab_bar_text_pgc));
 
-        mNavigateBar.addTab(HomeFragment.class,
+        mNavigateBar.addTab(ProfileFragment.class,
                 new TabStripView.TabParam(R.drawable.ic_tab_strip_icon_profile,
                         R.drawable.ic_tab_strip_icon_profile_selected, R.string.tab_bar_text_profile));
     }

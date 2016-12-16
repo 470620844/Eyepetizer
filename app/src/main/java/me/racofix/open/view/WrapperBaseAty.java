@@ -4,7 +4,7 @@ import android.content.Context;
 import com.meikoz.core.base.BaseActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public abstract class WrapperBaseActivity extends BaseActivity {
+public abstract class WrapperBaseAty extends BaseActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {

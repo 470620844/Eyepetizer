@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.meikoz.core.base.BaseFragment;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +14,7 @@ import me.racofix.open.model.SectionBean;
 import me.racofix.open.presenter.DataView;
 import me.racofix.open.presenter.HomeLogicI;
 import me.racofix.open.presenter.HomeLogicImpl;
+import me.racofix.open.view.WrapperBaseFragment;
 import me.racofix.open.view.adapter.HomeRecylerAdapter;
 import retrofit2.Response;
 
@@ -24,7 +23,7 @@ import retrofit2.Response;
  * Date: 2016/9/18
  * Github: https://github.com/racofix
  */
-public class HomeFragment extends BaseFragment implements DataView<HomeBean> {
+public class HomeFragment extends WrapperBaseFragment implements DataView<HomeBean> {
 
     @Bind(R.id.category_recycler_view)
     RecyclerView mCategoryRecyclerView;

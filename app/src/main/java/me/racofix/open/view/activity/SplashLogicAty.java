@@ -9,14 +9,14 @@ import butterknife.Bind;
 import me.racofix.open.R;
 import me.racofix.open.app.ImageControl;
 import me.racofix.open.utils.StatusBarUtil;
-import me.racofix.open.view.WrapperBaseActivity;
+import me.racofix.open.view.WrapperBaseAty;
 
 /**
  * Author: 码农小阿新
  * Date: 2016/9/23
  * Github: https://github.com/racofix
  */
-public abstract class SplashLogicAty extends WrapperBaseActivity {
+public abstract class SplashLogicAty extends WrapperBaseAty {
 
     @Bind(R.id.iv_launch_cover)
     ImageView mLauchCoverView;

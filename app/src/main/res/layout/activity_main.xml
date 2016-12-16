@@ -17,7 +17,7 @@
         android:layout_above="@id/tsv_navigate_bar"/>
 
     <com.meikoz.core.ui.TabStripView
-        android:id="@+id/navigateTabBar"
+        android:id="@+id/tsv_navigate_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_bar_height"
         android:layout_alignParentBottom="true"
