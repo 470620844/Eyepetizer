@@ -10,7 +10,7 @@ public class BaseApp extends MainApplication {
 
     @Override
     public void onCreate() {
-        RestApi.getInstance().deBug(true);
+        RestApi.getInstance().bug(true);
         super.onCreate();
     }
 }

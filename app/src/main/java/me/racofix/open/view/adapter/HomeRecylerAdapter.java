@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.meikoz.core.manage.ScreenUtil;
+import com.meikoz.core.util.ScreenUtil;
 
 import java.util.List;
 

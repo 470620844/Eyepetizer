@@ -28,7 +28,7 @@ public class SplashAty extends AbsBaseActivity {
     }
 
     @Override
-    protected void onInitView(Bundle savedInstanceState) {
+    protected void onInitialization(Bundle bundle) {
         StatusBarUtil.setTranslucentBackground(this);
         sacleLargenView();
     }
